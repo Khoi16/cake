@@ -59,7 +59,8 @@ def upload_items_to_src_server():
         hostname=src, port=port, username=username, password=password
     )
     sftp = client.open_sftp()
-    remote_dir = remote_dir
+    remote_dir = '/home/khoinkn/'
+    
     for filename in os.listdir(folder):
             local_file_path = os.path.join(folder, filename)
             
