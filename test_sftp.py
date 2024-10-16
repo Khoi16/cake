@@ -47,8 +47,8 @@ def list_items_des_server():
     return list_dir
 
 def check_if_exsit(src, des, port, username, password, dir):
-    src_srv_files = list_items_src_server(src, port, username, password, dir)
-    des_srv_files = list_items_des_server(des, port, username, password, dir)
+    src_srv_files = list_items_src_server()
+    des_srv_files = list_items_des_server()
     return [file for file in src_srv_files if file not in des_srv_files]
 
     
