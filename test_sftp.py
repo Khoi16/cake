@@ -10,7 +10,7 @@ folder = '/opt/airflow/dags/repo'
 src='192.169.135.113'
 des='192.169.89.92'
 port =22
-username='khoinkn',
+username='khoinkn'
 password='khoinkn1234'
 remote_dir = '/home/khoinkn/'
 
@@ -23,11 +23,12 @@ def list_items_src_server():
     )
     sftp = client.open_sftp()
     remote_dir = dir
+    list_dir = sftp.listdir()
     print('list dir on source server', sftp.listdir())
 
     sftp.close()
     client.close()
-    return sftp.listdir()
+    return list_dir
 
 
 def list_items_des_server():
@@ -38,11 +39,12 @@ def list_items_des_server():
     )
     sftp = client.open_sftp()
     remote_dir = dir
-    print('list dir on destination server', sftp.listdir())
+    list_dir = sftp.listdir()
+    print('list dir on destination server', list_dir)
 
     sftp.close()
     client.close()
-    return sftp.listdir()
+    return list_dir
 
 def check_if_exsit(src, des, port, username, password, dir):
     src_srv_files = list_items_src_server(src, port, username, password, dir)
