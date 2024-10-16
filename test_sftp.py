@@ -88,7 +88,7 @@ def upload_items_from_src_to_des_server():
 
     list_file = check_if_exsit(src, des, port, username, password, remote_dir)
     for filename in list_file:
-        client.exec_command("sshpass -p \'{}\' scp {}/{} {}@{}:{}".format(password, remote_dir, filename, username, des, remote_dir))
+        client.exec_command("sshpass -p \'{}\' scp {}{} {}@{}:{}".format(password, remote_dir, filename, username, des, remote_dir))
             # local_file_path = os.path.join(folder, filename)
             
             # if os.path.isfile(local_file_path):
