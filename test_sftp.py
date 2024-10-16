@@ -25,7 +25,6 @@ def list_items_src_server():
     remote_dir = dir
     list_dir = sftp.listdir()
     print('list dir on source server', sftp.listdir())
-
     sftp.close()
     client.close()
     return list_dir
@@ -41,7 +40,6 @@ def list_items_des_server():
     remote_dir = dir
     list_dir = sftp.listdir()
     print('list dir on destination server', list_dir)
-
     sftp.close()
     client.close()
     return list_dir
