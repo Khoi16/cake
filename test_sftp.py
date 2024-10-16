@@ -108,4 +108,4 @@ with DAG(
     task1 = PythonOperator(task_id='list_item', python_callable=list_items_src_server)
     task2 = PythonOperator(task_id = 'upload_items_to_source_server', python_callable = upload_items_to_src_server)
     task3 = PythonOperator(task_id = 'upload_items_from_source_to_destination_server', python_callable = upload_items_from_src_to_des_server)
-task1 >> task2
+task1 >> task2 >> task3
