@@ -15,11 +15,11 @@ password='khoinkn1234'
 remote_dir = '/home/khoinkn/'
 
 
-def list_items_src_server(hostname, port, username, password, dir):
+def list_items_src_server():
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(
-        hostname=hostname, port=port, username=username, password=password
+        hostname=src, port=port, username=username, password=password
     )
     sftp = client.open_sftp()
     remote_dir = dir
@@ -30,11 +30,11 @@ def list_items_src_server(hostname, port, username, password, dir):
     return sftp.listdir()
 
 
-def list_items_des_server(hostname, port, username, password, dir):
+def list_items_des_server():
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(
-        hostname=hostname, port=port, username=username, password=password
+        hostname=des, port=port, username=username, password=password
     )
     sftp = client.open_sftp()
     remote_dir = dir
